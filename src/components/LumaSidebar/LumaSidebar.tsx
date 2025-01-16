@@ -21,3 +21,5 @@ export const LumaSidebar = memo(() => {
     </Sidebar>
   );
 });
+
+LumaSidebar.displayName = 'LumaSidebar';

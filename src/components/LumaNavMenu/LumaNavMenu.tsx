@@ -4,11 +4,9 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent,
   SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
 } from '../ui/sidebar';
-import { NavLink } from 'react-router-dom';
 import { ROUTES } from '@/constants/routes';
+import { LumaNavLink } from '../LumaNavLink';
 
 export const LumaNavMenu = memo(() => {
   return (
@@ -17,19 +15,14 @@ export const LumaNavMenu = memo(() => {
       <SidebarGroupContent>
         <SidebarMenu>
           {ROUTES.map((navItem) => {
-            return (
-              <SidebarMenuItem key={navItem.href}>
-                <SidebarMenuButton asChild>
-                  <NavLink to={navItem.href}>
-                    {navItem.icon && <navItem.icon />}
-                    {navItem.title}
-                  </NavLink>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            );
+            return navItem.showOnSidebar ? (
+              <LumaNavLink navItem={navItem} key={navItem.href} />
+            ) : null;
           })}
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
   );
 });
+
+LumaNavMenu.displayName = 'LumaNavMenu';

@@ -1,12 +1,40 @@
 import { LumaNavigationItem } from '@/types/navigation';
-import { LucideHouse } from 'lucide-react';
+import {
+  LucideBookUser,
+  LucideBuilding,
+  LucideChartGantt,
+  LucideClipboardCheck,
+  LucideDatabase,
+  LucideHouse,
+  LucideUsers,
+} from 'lucide-react';
 
 export const ROUTES: LumaNavigationItem[] = [
-  { title: 'Home', href: '/', icon: LucideHouse },
-  { title: 'Roles', href: 'roles' },
-  { title: 'Permissions', href: 'permissions' },
-  { title: 'Organizations', href: 'organizations' },
-  { title: 'Projects', href: 'projects' },
-  { title: 'Resources', href: 'resources' },
-  { title: 'Users', href: 'users' },
-];
+  { title: 'Home', href: '', icon: LucideHouse, showOnSidebar: false },
+  { title: 'Roles', href: '/roles', icon: LucideBookUser, showOnSidebar: true },
+  {
+    title: 'Permissions',
+    href: '/permissions',
+    icon: LucideClipboardCheck,
+    showOnSidebar: true,
+  },
+  {
+    title: 'Organizations',
+    href: '/organizations',
+    icon: LucideBuilding,
+    showOnSidebar: true,
+  },
+  {
+    title: 'Projects',
+    href: '/projects',
+    icon: LucideChartGantt,
+    showOnSidebar: true,
+  },
+  {
+    title: 'Resources',
+    href: '/resources',
+    icon: LucideDatabase,
+    showOnSidebar: true,
+  },
+  { title: 'Users', href: '/users', icon: LucideUsers, showOnSidebar: true },
+] as const;
