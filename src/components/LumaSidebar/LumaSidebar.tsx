@@ -7,6 +7,7 @@ import {
 } from '../ui/sidebar';
 import { Button } from '../ui/button';
 import { LumaNavMenu } from '../LumaNavMenu/LumaNavMenu';
+import { LumaThemeSwitcher } from '../LumaThemeSwitcher';
 
 export const LumaSidebar = memo(() => {
   return (
@@ -17,6 +18,7 @@ export const LumaSidebar = memo(() => {
       </SidebarContent>
       <SidebarFooter>
         <Button>Sign In</Button>
+        <LumaThemeSwitcher />
       </SidebarFooter>
     </Sidebar>
   );

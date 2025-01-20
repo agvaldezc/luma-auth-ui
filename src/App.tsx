@@ -11,7 +11,11 @@ const App = () => {
         <Route path="/" element={<Layout />} errorElement={<div>404</div>}>
           {ROUTES.map((route) => {
             return (
-              <Route path={route.href} element={<div>{route.title}</div>} key={route.href} />
+              <Route
+                path={route.href}
+                element={<div>{route.title}</div>}
+                key={route.href}
+              />
             );
           })}
         </Route>
