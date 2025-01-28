@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -8,7 +7,7 @@ import {
 import { ROUTES } from '@/constants/routes';
 import { LumaNavLink } from '../LumaNavLink';
 
-export const LumaNavMenu = memo(() => {
+export const LumaNavMenu = () => {
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Navigation</SidebarGroupLabel>
@@ -23,6 +22,6 @@ export const LumaNavMenu = memo(() => {
       </SidebarGroupContent>
     </SidebarGroup>
   );
-});
+};
 
 LumaNavMenu.displayName = 'LumaNavMenu';
