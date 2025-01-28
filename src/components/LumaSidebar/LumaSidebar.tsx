@@ -14,7 +14,7 @@ export const LumaSidebar = () => {
     <Sidebar>
       <SidebarHeader>
         <div className="p-2 flex items-center justify-between">
-          <h1 className="text-lg font-semibold">Luma Auth UI</h1>
+          <h1 className="text-lg font-semibold">Luma Auth</h1>
           <LumaThemeSwitcher />
         </div>
       </SidebarHeader>

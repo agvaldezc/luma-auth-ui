@@ -1,5 +1,5 @@
 import { LumaNavigationItem } from '@/types/navigation';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router';
 import { SidebarMenuItem, SidebarMenuButton } from '../ui/sidebar';
 
 type LumaNavLinkProps = {
