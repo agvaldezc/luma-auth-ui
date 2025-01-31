@@ -23,7 +23,7 @@ export const LumaSidebar = () => {
       </SidebarContent>
       <SidebarSeparator />
       <SidebarFooter>
-        <div className="p-2 flex items-center flex-grow">
+        <div className="p-2 flex items-center grow">
           <Button className='w-full'>Sign In</Button>
         </div>
       </SidebarFooter>

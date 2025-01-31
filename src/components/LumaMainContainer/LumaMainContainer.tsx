@@ -7,7 +7,7 @@ type LumaMainContainerProps = {
 
 export const LumaMainContainer = ({ children }: LumaMainContainerProps) => {
   return (
-    <div className="flex flex-col flex-grow">
+    <div className="flex flex-col grow">
       <LumaHeader />
       <Separator />
       <main>{children}</main>
