@@ -1,6 +1,6 @@
 import { useOrganizations } from '@/features/organizations/hooks/useOrganizations';
-import { OrganizationsTable } from '../components/OrganizationsTable/OrganizationsTable';
-import { columns } from '../components/OrganizationsTable/columns';
+import { organizationsTableColumns } from '../datatable-columns/organizations-table';
+import { DataTable } from '@/components/ui/datatable';
 
 export const OrganizationsPage = () => {
   const { organizations, error, isLoading } = useOrganizations();
@@ -15,7 +15,7 @@ export const OrganizationsPage = () => {
 
   return (
     <div className="page p-2" id="users-page">
-      <OrganizationsTable columns={columns} data={organizations ?? []} />
+      <DataTable columns={organizationsTableColumns} data={organizations} />
     </div>
   );
 };

@@ -1,12 +1,17 @@
+import { LumaHeader } from '../LumaHeader';
+import { Separator } from '../ui/separator';
+
 type LumaMainContainerProps = {
   children?: React.ReactNode;
 };
 
 export const LumaMainContainer = ({ children }: LumaMainContainerProps) => {
   return (
-    <main className="flex flex-grow flex-col p-2">
-      {children}
-    </main>
+    <div className="flex flex-col flex-grow">
+      <LumaHeader />
+      <Separator />
+      <main>{children}</main>
+    </div>
   );
 };
 

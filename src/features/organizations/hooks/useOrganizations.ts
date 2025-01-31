@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import { Organization } from '../components/OrganizationsTable/columns';
+import { Organization } from '../datatable-columns/organizations-table';
 
 export const useOrganizations = () => {
   const {

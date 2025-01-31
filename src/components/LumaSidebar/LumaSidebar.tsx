@@ -14,11 +14,10 @@ export const LumaSidebar = () => {
     <Sidebar>
       <SidebarHeader>
         <div className="p-2 flex items-center justify-between">
-          <h1 className="text-lg font-semibold">Luma Auth</h1>
+          <span className="text-2xl font-semibold">Luma Auth</span>
           <LumaThemeSwitcher />
         </div>
       </SidebarHeader>
-      <SidebarSeparator />
       <SidebarContent>
         <LumaNavMenu />
       </SidebarContent>
