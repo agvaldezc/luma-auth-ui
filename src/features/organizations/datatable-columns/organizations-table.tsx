@@ -1,6 +1,15 @@
+import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { DataTableColumnHeader } from '@/components/ui/datatable-headers';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { LinkButton } from '@/components/ui/link-button';
 import { ColumnDef } from '@tanstack/react-table';
+import { LucideMoreHorizontal } from 'lucide-react';
 
 export type Organization = {
   id: string;
@@ -38,7 +47,20 @@ export const organizationsTableColumns: ColumnDef<Organization>[] = [
     enableSorting: false,
     enableHiding: false,
   },
-  { accessorKey: 'name', header: ({ column }) => <DataTableColumnHeader column={column} title="Name" /> },
+  {
+    accessorKey: 'name',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Name" />
+    ),
+    cell: ({ row }) => {
+      const organization = row.original;
+      return (
+        <LinkButton href={`/organizations/${organization.id}`}>
+          {organization.name}
+        </LinkButton>
+      );
+    },
+  },
   {
     accessorKey: 'createdAt',
     header: 'Created At',
@@ -57,4 +79,26 @@ export const organizationsTableColumns: ColumnDef<Organization>[] = [
     },
   },
   { accessorKey: 'updatedBy', header: 'Updated By' },
+  {
+    id: 'actions',
+    cell: ({ row }) => {
+      const organization = row.original;
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon">
+              <LucideMoreHorizontal />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem
+              onClick={() => navigator.clipboard.writeText(organization.id)}
+            >
+              Copy Organization ID
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      );
+    },
+  },
 ];
