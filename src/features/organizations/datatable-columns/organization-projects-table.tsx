@@ -8,11 +8,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { LinkButton } from '@/components/ui/link-button';
-import { Organization } from '@/features/organizations/types/organization';
+import { Project } from '@/features/organizations/types/organization';
 import { ColumnDef } from '@tanstack/react-table';
 import { LucideMoreHorizontal } from 'lucide-react';
 
-export const organizationsTableColumns: ColumnDef<Organization>[] = [
+export const organizationProjectsTableColumns: ColumnDef<Project>[] = [
   {
     id: 'select',
     header: ({ table }) => {
@@ -45,10 +45,10 @@ export const organizationsTableColumns: ColumnDef<Organization>[] = [
       <DataTableColumnHeader column={column} title="Name" />
     ),
     cell: ({ row }) => {
-      const organization = row.original;
+      const project = row.original;
       return (
-        <LinkButton href={`/organizations/${organization.id}`}>
-          {organization.name}
+        <LinkButton href={`/organizations/${project.id}`}>
+          {project.name}
         </LinkButton>
       );
     },
@@ -74,7 +74,7 @@ export const organizationsTableColumns: ColumnDef<Organization>[] = [
   {
     id: 'actions',
     cell: ({ row }) => {
-      const organization = row.original;
+      const project = row.original;
       return (
         <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>
@@ -84,9 +84,9 @@ export const organizationsTableColumns: ColumnDef<Organization>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(organization.id)}
+              onClick={() => navigator.clipboard.writeText(project.id)}
             >
-              Copy Organization ID
+              Copy Project ID
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

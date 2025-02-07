@@ -27,11 +27,13 @@ import { DataTablePagination } from './datatable-pagination';
 type DataTableProps<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  noRecordsMessage?: string;
 };
 
 export const DataTable = <TData, TValue>({
   columns,
   data,
+  noRecordsMessage = 'No records found.',
 }: DataTableProps<TData, TValue>) => {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -104,7 +106,7 @@ export const DataTable = <TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  {noRecordsMessage}
                 </TableCell>
               </TableRow>
             )}

@@ -1,30 +1,18 @@
 import useSWR from 'swr';
-import { Organization } from '../datatable-columns/organizations-table';
-import axios from 'axios';
-
-export const SWR_OrganizationsKey = 'api/v1/organizations' as const;
+import { SWR_OrganizationsKey } from '@/features/organizations/api/contants';
+import { buildSWRKey } from '@/lib/utils';
+import { Organization } from '@/features/organizations/types/organization';
+import { fetcher } from '@/api/fetchers';
 
 const useOrganizations = () => {
-  const {
-    data: response,
-    error,
-    isLoading,
-    isValidating,
-    mutate,
-  } = useSWR<{ data: Organization[] }>(
-    SWR_OrganizationsKey,
-    (url: string) => axios.get(`http://localhost:8080/${url}`).then((res) => res.data),
-    {
-      shouldRetryOnError: false,
-    }
+  const swr = useSWR<Organization[]>(
+    buildSWRKey([SWR_OrganizationsKey]),
+    fetcher<Organization[]>
   );
 
   return {
-    organizations: response?.data ?? [],
-    error,
-    isLoading,
-    isValidating,
-    mutate
+    ...swr,
+    data: swr.data ?? [],
   };
 };
 
