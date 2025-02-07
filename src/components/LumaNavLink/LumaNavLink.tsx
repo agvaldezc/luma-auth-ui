@@ -6,7 +6,7 @@ type LumaNavLinkProps = {
   navItem: LumaNavigationItem;
 };
 
-export const LumaNavLink = ({ navItem }: LumaNavLinkProps) => {
+const LumaNavLink = ({ navItem }: LumaNavLinkProps) => {
   const { pathname } = useLocation();
 
   return (
@@ -21,4 +21,4 @@ export const LumaNavLink = ({ navItem }: LumaNavLinkProps) => {
   );
 };
 
-LumaNavLink.displayName = 'LumaNavLink';
+export default LumaNavLink;

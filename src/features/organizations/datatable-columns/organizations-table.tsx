@@ -84,7 +84,7 @@ export const organizationsTableColumns: ColumnDef<Organization>[] = [
     cell: ({ row }) => {
       const organization = row.original;
       return (
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon">
               <LucideMoreHorizontal />

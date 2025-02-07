@@ -1,8 +1,8 @@
+import Layout from '@/components/Layout';
+import OrganizationPage from '@/features/organizations/pages/OrganizationPage';
+import OrganizationsPage from '@/features/organizations/pages/OrganizationsPage';
+import { UsersPage } from '@/features/users/pages/UsersPage';
 import { BrowserRouter, Route, Routes } from 'react-router';
-import { Layout } from './components/Layout/Layout';
-import { UsersPage } from './features/users/pages/UsersPage';
-import { OrganizationsPage } from './features/organizations/pages/OrganizationsPage';
-import { OrganizationPage } from './features/organizations/pages/OrganizationPage';
 
 const App = () => {
   return (

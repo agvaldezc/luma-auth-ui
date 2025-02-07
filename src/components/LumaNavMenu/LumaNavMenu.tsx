@@ -1,13 +1,14 @@
+import LumaNavLink from '@/components/LumaNavLink';
 import {
   SidebarGroup,
-  SidebarGroupLabel,
   SidebarGroupContent,
+  SidebarGroupLabel,
   SidebarMenu,
-} from '../ui/sidebar';
-import { ROUTES } from '@/constants/routes';
-import { LumaNavLink } from '../LumaNavLink';
+} from '@/components/ui/sidebar';
 
-export const LumaNavMenu = () => {
+import { ROUTES } from '@/constants/routes';
+
+const LumaNavMenu = () => {
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Navigation</SidebarGroupLabel>
@@ -24,4 +25,4 @@ export const LumaNavMenu = () => {
   );
 };
 
-LumaNavMenu.displayName = 'LumaNavMenu';
+export default LumaNavMenu;

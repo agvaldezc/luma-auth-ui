@@ -1,15 +1,15 @@
+import LumaNavMenu from '@/components/LumaNavMenu';
+import LumaThemeSwitcher from '@/components/LumaThemeSwitcher';
+import { Button } from '@/components/ui/button';
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
   SidebarHeader,
+  SidebarContent,
   SidebarSeparator,
-} from '../ui/sidebar';
-import { Button } from '../ui/button';
-import { LumaNavMenu } from '../LumaNavMenu/LumaNavMenu';
-import { LumaThemeSwitcher } from '../LumaThemeSwitcher';
+  SidebarFooter,
+  Sidebar,
+} from '@/components/ui/sidebar';
 
-export const LumaSidebar = () => {
+const LumaSidebar = () => {
   return (
     <Sidebar>
       <SidebarHeader>
@@ -24,11 +24,11 @@ export const LumaSidebar = () => {
       <SidebarSeparator />
       <SidebarFooter>
         <div className="p-2 flex items-center grow">
-          <Button className='w-full'>Sign In</Button>
+          <Button className="w-full">Sign In</Button>
         </div>
       </SidebarFooter>
     </Sidebar>
   );
 };
 
-LumaSidebar.displayName = 'LumaSidebar';
+export default LumaSidebar;

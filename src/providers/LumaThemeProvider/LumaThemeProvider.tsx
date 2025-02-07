@@ -3,8 +3,7 @@ import { LumaThemeContext } from '@/contexts/LumaThemeContext';
 import { LumaThemeProviderProps, Theme } from '@/types/theme';
 import { useEffect, useState } from 'react';
 
-
-export const LumaThemeProvider = ({
+const LumaThemeProvider = ({
   children,
   defaultTheme = DEFAULT_THEME,
   storageKey = THEME_STORAGE_KEY,
@@ -37,3 +36,5 @@ export const LumaThemeProvider = ({
     </LumaThemeContext.Provider>
   );
 };
+
+export default LumaThemeProvider;

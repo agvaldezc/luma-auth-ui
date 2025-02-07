@@ -1,14 +1,14 @@
-import { useTheme } from '@/hooks/useTheme';
+import { useTheme } from '@/hooks/use-theme';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
 } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
 import { Sun, Moon } from 'lucide-react';
-import { Button } from '../ui/button';
 
-export function LumaThemeSwitcher() {
+const LumaThemeSwitcher = () => {
   const { setTheme } = useTheme();
 
   return (
@@ -33,4 +33,6 @@ export function LumaThemeSwitcher() {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
+};
+
+export default LumaThemeSwitcher;

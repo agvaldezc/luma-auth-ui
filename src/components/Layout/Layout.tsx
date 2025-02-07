@@ -1,10 +1,10 @@
+import LumaHeader from '@/components/LumaHeader';
+import LumaSidebar from '@/components/LumaSidebar';
+import { Separator } from '@/components/ui/separator';
+import { SidebarProvider } from '@/components/ui/sidebar';
 import { Outlet } from 'react-router';
-import { SidebarProvider } from '../ui/sidebar';
-import { LumaSidebar } from '../LumaSidebar';
-import { LumaHeader } from '../LumaHeader';
-import { Separator } from '../ui/separator';
 
-export const Layout = () => {
+const Layout = () => {
   return (
     <SidebarProvider>
       <LumaSidebar />
@@ -19,4 +19,4 @@ export const Layout = () => {
   );
 };
 
-Layout.displayName = 'Layout';
+export default Layout;

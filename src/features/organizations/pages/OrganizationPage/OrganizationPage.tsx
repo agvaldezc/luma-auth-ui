@@ -1,9 +1,9 @@
+import useOrganization from '@/features/organizations/hooks/use-organization';
 import { useParams } from 'react-router';
-import { useOrganization } from '../hooks/useOrganization';
 
-export const OrganizationPage = () => {
+const OrganizationPage = () => {
   const { id: organizationId } = useParams<{ id: string }>();
-  
+
   if (!organizationId) {
     throw new Error('Organization ID is required');
   }
@@ -26,3 +26,5 @@ export const OrganizationPage = () => {
     </div>
   );
 };
+
+export default OrganizationPage;

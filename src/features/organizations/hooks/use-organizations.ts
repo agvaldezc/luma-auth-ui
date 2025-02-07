@@ -2,15 +2,18 @@ import useSWR from 'swr';
 import { Organization } from '../datatable-columns/organizations-table';
 import axios from 'axios';
 
-export const useOrganizations = () => {
+export const SWR_OrganizationsKey = 'api/v1/organizations' as const;
+
+const useOrganizations = () => {
   const {
     data: response,
     error,
     isLoading,
+    isValidating,
     mutate,
   } = useSWR<{ data: Organization[] }>(
-    'http://localhost:8080/api/v1/organizations',
-    (url: string) => axios.get(url).then((res) => res.data),
+    SWR_OrganizationsKey,
+    (url: string) => axios.get(`http://localhost:8080/${url}`).then((res) => res.data),
     {
       shouldRetryOnError: false,
     }
@@ -20,6 +23,9 @@ export const useOrganizations = () => {
     organizations: response?.data ?? [],
     error,
     isLoading,
+    isValidating,
     mutate
   };
 };
+
+export default useOrganizations;

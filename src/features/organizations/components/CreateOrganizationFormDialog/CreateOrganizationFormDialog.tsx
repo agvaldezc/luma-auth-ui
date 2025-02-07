@@ -1,15 +1,7 @@
-"use no memo";
+'use no memo';
 
 import { Button } from '@/components/ui/button';
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
+
 import {
   Form,
   FormControl,
@@ -24,7 +16,17 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
   CreateOrganizationFormSchema,
   CreateOrganizationFormValues,
-} from '../schemas/createOrganizationForm';
+} from '@/features/organizations/schemas/createOrganizationForm';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 
 type CreateOrganizationDialogProps = {
   open: boolean;
@@ -32,7 +34,7 @@ type CreateOrganizationDialogProps = {
   onSubmit: (data: CreateOrganizationFormValues) => void;
 };
 
-export const CreateOrganizationFormDialog = ({
+const CreateOrganizationFormDialog = ({
   open,
   onOpenChange,
   onSubmit,
@@ -47,16 +49,22 @@ export const CreateOrganizationFormDialog = ({
     onSubmit(data);
     form.reset();
   };
+  const openChangeHandler = (open: boolean) => {
+    onOpenChange(open);
+    form.reset();
+  };
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogTrigger asChild>
+    <AlertDialog open={open} onOpenChange={openChangeHandler}>
+      <AlertDialogTrigger asChild>
         <Button variant="outline">Create Organization</Button>
-      </DialogTrigger>
-      <DialogContent aria-describedby="create-organization-dialog">
-        <DialogTitle>Create Organization</DialogTitle>
-        <DialogDescription>This will create a new organization on the system.</DialogDescription>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogTitle>Create Organization</AlertDialogTitle>
+        <AlertDialogDescription>
+          This will create a new organization on the system.
+        </AlertDialogDescription>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(submitHandler)} className="space-y-4">
+          <form className="space-y-4">
             <FormField
               control={form.control}
               name="name"
@@ -70,15 +78,22 @@ export const CreateOrganizationFormDialog = ({
                 </FormItem>
               )}
             ></FormField>
-            <DialogFooter>
-              <DialogClose asChild>
-                <Button variant="secondary">Close</Button>
-              </DialogClose>
-              <Button type="submit">Create Organization</Button>
-            </DialogFooter>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction asChild>
+                <Button
+                  type="submit"
+                  onClick={form.handleSubmit(submitHandler)}
+                >
+                  Create Organization
+                </Button>
+              </AlertDialogAction>
+            </AlertDialogFooter>
           </form>
         </Form>
-      </DialogContent>
-    </Dialog>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 };
+
+export default CreateOrganizationFormDialog;

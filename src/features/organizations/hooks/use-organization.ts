@@ -1,8 +1,8 @@
 import useSWR from 'swr';
-import { Organization } from '../datatable-columns/organizations-table';
 import axios from 'axios';
+import { Organization } from '@/features/organizations/datatable-columns/organizations-table';
 
-export const useOrganization = (id: string) => {
+const useOrganization = (id: string) => {
   const {
     data: response,
     error,
@@ -21,3 +21,5 @@ export const useOrganization = (id: string) => {
     isLoading,
   };
 };
+
+export default useOrganization;
